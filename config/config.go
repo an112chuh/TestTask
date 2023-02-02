@@ -17,24 +17,26 @@ func Get() *JSONStruct {
 	return conf
 }
 
-func (conf *JSONStruct) Make(fileName string) {
+func (conf *JSONStruct) Make(fileName string) error {
 	file, err := os.Open(fileName)
 	if err != nil {
 		errors.Print(err.Error())
-		return
+		return err
 	}
 	defer file.Close()
-	conf.parse(file)
+	err = conf.parse(file)
+	return err
 }
 
-func (conf *JSONStruct) parse(file *os.File) {
+func (conf *JSONStruct) parse(file *os.File) error {
 	bytes, err := ioutil.ReadAll(file)
 	if err != nil {
 		errors.Print(err.Error())
-		return
+		return err
 	}
 	err = json.Unmarshal(bytes, conf)
 	if err != nil {
 		errors.Print(err.Error())
 	}
+	return err
 }

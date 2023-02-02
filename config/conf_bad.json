@@ -1,0 +1,43 @@
+{
+    "sleep_time": "60",
+    "urls": [
+        {
+            "url": "http://ya.ru",
+            "checks": [
+                {
+                    "param": "status_code",
+                    "data": "300"
+                },
+                {
+                    "param": "text",
+                    "data": "ok"
+                }
+            ],
+            "min_checks_cnt": 2
+        },
+        {
+            "url": "http://vk.com",
+            "checks": [
+                {
+                    "param": "status_code",
+                    "data": "300"
+                },
+                {
+                    "param": "text",
+                    "data": "ok"
+                }
+            ],
+            "min_checks_cnt": 1
+        },
+        {
+            "url": "http://mail.ru",
+            "checks": [
+                {
+                    "param": "status_code",
+                    "data": "300"
+                }
+            ],
+            "min_checks_cnt": 1
+        }
+    ]
+}
